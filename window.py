@@ -1,0 +1,118 @@
+
+
+
+def test():
+    print("Test Function")
+
+def print_head_Info(file):
+    file.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n")
+
+def print_scene_head(file):
+    file.write("<scene version=\"0.5.0\">\n")
+
+def print_scene_tail(file):
+    file.write("</scene>\n")
+
+def integrator(file):
+    file.write("	<integrator type=\"bdpt\">\n")
+    file.write("		<integer name=\"maxDepth\" value=\"6\"/>\n")
+    file.write("		<boolean name=\"strictNormals\" value=\"true\"/>\n")
+    file.write("	</integrator>\n")
+
+def perspective(file):
+    file.write("	<sensor type=\"perspective\">\n")
+    file.write("		<float name=\"farClip\" value=\"1000\"/>\n")
+    file.write("		<float name=\"focusDistance\" value=\"10\"/>\n")
+    file.write("		<float name=\"fov\" value=\"20\"/>\n")
+    file.write("		<string name=\"fovAxis\" value=\"x\"/>\n")
+    file.write("		<float name=\"nearClip\" value=\"0.1\"/>\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<lookat target=\"0, 0, 0\" origin=\"0, 0, 50\" up=\"0, 1, 0\"/>\n")
+    file.write("		</transform>\n")
+    file.write("		<sampler type=\"ldsampler\">\n")
+    file.write("			<integer name=\"sampleCount\" value=\"2\"/>\n")
+    file.write("		</sampler>\n")
+    file.write("		<film type=\"ldrfilm\">\n")
+    file.write("			<integer name=\"height\" value=\"740\"/>\n")
+    file.write("			<integer name=\"width\" value=\"1280\"/>\n")
+    file.write("			<rfilter type=\"gaussian\"/>\n")
+    file.write("		</film>\n")
+    file.write("	</sensor>\n")
+
+def bsdf_water_drop(file):
+    file.write("	<bsdf type=\"dielectric\" id=\"Water_Drop\">\n")
+    file.write("		<float name=\"extIOR\" value=\"1.0\"/>\n")
+    file.write("		<float name=\"intIOR\" value=\"1.333\"/>\n")
+    file.write("	</bsdf>\n")
+
+def envmap(file):
+    file.write("	<emitter type=\"envmap\">\n")
+    file.write("	    <float name = \"scale\" value = \"5\"/>\n")
+    file.write("		<string name=\"filename\" value=\"env_blur.hdr\"/>\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<rotate y = \"1\" angle = \"-150\"/>\n")
+    file.write("			<rotate x = \"1\" angle = \"-2\"/>\n")
+    file.write("		</transform>\n")
+    file.write("	</emitter>\n")
+
+def glass(file):
+    file.write("	<shape type=\"cube\" id = \"glass\">\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<scale x=\"10\" y=\"10\" z=\"0.1\"/>\n")
+    file.write("		</transform>\n")
+    file.write("		<bsdf type=\"mixturebsdf\">\n")
+    file.write("			<string name = \"weights\" value = \"1,0\"/>\n")
+    file.write("			<bsdf type = \"dielectric\"/>\n")
+    file.write("			<bsdf type = \"roughdielectric\">\n")
+    file.write("			    <float name = \"alpha\" value = \"0.1\"/>\n")
+    file.write("		    </bsdf>\n")
+    file.write("		</bsdf>\n")
+#    file.write("		<medium type=\"homogeneous\" name=\"interior\">\n")
+ #   file.write("			<rgb name=\"sigmaS\" value=\"0, 0, 0\"/>\n")
+  #  file.write("			<rgb name=\"sigmaA\" value=\"4, 4, 2\"/>\n")
+   # file.write("		</medium>\n")
+    file.write("	</shape>\n")
+
+def no_split_long_drops(n,f):
+    f.write("	<shape type=\"obj\">\n")
+    str ="		<string name=\"filename\" value=\"No_Split_Long_Drops/dynamic_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
+    f.write(str)
+    f.write("		<transform name=\"toWorld\">\n")
+    f.write("		    <scale value=\"0.3\"/>\n")
+    f.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+    f.write("		</transform>\n")
+    f.write("		<ref id=\"Water_Drop\"/>\n")
+    f.write("	</shape>\n")
+
+def test_obj(file):
+    file.write("	<shape type=\"sphere\">\n")
+    file.write("		<ref id=\"Water_Drop\"/>\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<scale x=\"1\" y=\"1\" z=\"1\"/>\n")
+    file.write("		</transform>\n")
+    file.write("	</shape>\n")
+    file.write("	<shape type=\"obj\">\n")
+    file.write("		<string name=\"filename\" value=\"static_drop_004.obj\"/>\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<translate x=\"10\" y=\"30\" z=\"0\"/>\n")
+    file.write("			<scale x=\"0.2\" y=\"0.2\" z=\"0.5\"/>\n")
+    file.write("		</transform>\n")
+    file.write("		<ref id=\"Water_Drop\"/>\n")
+    file.write("	</shape>\n")
+
+    file.write("	<shape type=\"obj\">\n")
+    file.write("		<string name=\"filename\" value=\"static_drop_004.obj\"/>\n")
+    file.write("		<transform name=\"toWorld\">\n")
+    file.write("			<translate x=\"10\" y=\"0\" z=\"0\"/>\n")
+    file.write("			<scale x=\"0.2\" y=\"0.2\" z=\"0.5\"/>\n")
+    file.write("		</transform>\n")
+    file.write("		<ref id=\"Water_Drop\"/>\n")
+    file.write("	</shape>\n")
+
+
+    file.write("\n")
+    file.write("\n")
+    file.write("\n")
+
+
+

@@ -1,46 +1,61 @@
 import os, sys
-
 import subprocess
-
-import Utility as u
-
-
-def no_split_long_drops(n,f):
-    f.write("	<shape type=\"obj\">\n")
-    str ="		<string name=\"filename\" value=\"No_Split_Long_Drops/dynamic_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
-    f.write(str)
-    f.write("			<transform name=\"toWorld\">\n")
-    f.write("		    <scale x=\"0.2\" y=\"0.2\" z=\"0.5\"/>\n")
-    f.write("		</transform>\n")
-    f.write("		<ref id=\"Water_Drop\"/>\n")
-    f.write("	</shape>\n")
+import window as w
+import cv2
+import shutil
 
 
 #C:\\Users\\chu.386\\Desktop\\FinalScene\\
 
+def clearFolderContents(pathToFolder, recursive=False):
+    for theFile in os.listdir(pathToFolder):
+        filePath = os.path.join(pathToFolder, theFile)
+        try:
+            if os.path.isfile(filePath):
+                os.unlink(filePath)
+            elif recursive and os.path.isdir(filePath):
+                shutil.rmtree(filePath)
+        except Exception as e:
+            print(e)
 
-for i in range(1, 271):
-    file = open("C:\\Users\\chu.386\\Desktop\\FinalScene\\mitsuba.xml", "w+")
-    u.print_head_Info(file)
-    u.print_scene_head(file)
-    u.integrator(file)
-    u.perspective(file)
-    u.bsdf_water_drop(file)
-    u.envmap(file)
-    u.glass(file)
-    no_split_long_drops(i,file)
-    u.print_scene_tail(file)
+def single_water_drops_window():
+    # Clear Folder
+    clearFolderContents("C:\\Users\\chu.386\\Desktop\\window\\Result02\\")
+
+    for i in range(1, 271):
+        file = open("C:\\Users\\chu.386\\Desktop\\window\\mitsuba.xml", "w+")
+        w.print_head_Info(file)
+        w.print_scene_head(file)
+        w.integrator(file)
+        w.perspective(file)
+        w.bsdf_water_drop(file)
+        w.envmap(file)
+        w.glass(file)
+        w.no_split_long_drops(i, file)
+        w.print_scene_tail(file)
+
+        file.close()
+
+        name = '{num:03d}'.format(num=i)
+        cmd = "cd C:\\Users\\chu.386\\Desktop\\window && mitsuba -o " + name + " mitsuba.xml"
+        os.system(cmd)
 
 
 
-    file.close()
+        # load the image and crop it
+        name = name+".png"
+        image = cv2.imread("C:\\Users\\chu.386\\Desktop\\window\\"+name)
+        image = image[0:720, 0:1280]
+        cv2.imwrite("C:\\Users\\chu.386\\Desktop\\window\\Result02\\"+name,image)
+        delete = "del  C:\\Users\\chu.386\\Desktop\\window\\" + name
+        os.system(delete)
 
 
-    name = '{num:03d}'.format(num=i)
-    cmd="cd C:\\Users\\chu.386\\Desktop\\FinalScene && mitsuba -o "+name+" mitsuba.xml"
-    os.system(cmd)
-    move = "move  C:\\Users\\chu.386\\Desktop\\FinalScene\\"+name+".png  C:\\Users\\chu.386\\Desktop\\FinalScene\\Result"
-    os.system(move)
+
+single_water_drops_window()
+
+
+
 
 #os.system("start \"\" cmd /k \"cd /D C:\\ ")
 #subprocess.check_output("C:\\Users\\chu.386\\Desktop\\Mitsuba0.5.0\\mitsuba.exe C:/Users/chu.386/Desktop/FinalScene/mitsuba.xml", shell=True)
