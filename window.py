@@ -33,9 +33,10 @@ def perspective(file):
     file.write("			<integer name=\"sampleCount\" value=\"2\"/>\n")
     file.write("		</sampler>\n")
     file.write("		<film type=\"ldrfilm\">\n")
-    file.write("			<integer name=\"height\" value=\"740\"/>\n")
+    file.write("			<integer name=\"height\" value=\"720\"/>\n")
     file.write("			<integer name=\"width\" value=\"1280\"/>\n")
     file.write("			<rfilter type=\"gaussian\"/>\n")
+    file.write("			<boolean name=\"banner\" value=\"false\"/>\n")
     file.write("		</film>\n")
     file.write("	</sensor>\n")
 
@@ -60,6 +61,7 @@ def glass(file):
     file.write("		<transform name=\"toWorld\">\n")
     file.write("			<scale x=\"10\" y=\"10\" z=\"0.1\"/>\n")
     file.write("		</transform>\n")
+
     file.write("		<bsdf type=\"mixturebsdf\">\n")
     file.write("			<string name = \"weights\" value = \"1,0\"/>\n")
     file.write("			<bsdf type = \"dielectric\"/>\n")
@@ -76,6 +78,17 @@ def glass(file):
 def no_split_long_drops(n,f):
     f.write("	<shape type=\"obj\">\n")
     str ="		<string name=\"filename\" value=\"No_Split_Long_Drops/dynamic_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
+    f.write(str)
+    f.write("		<transform name=\"toWorld\">\n")
+    f.write("		    <scale value=\"0.3\"/>\n")
+    f.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+    f.write("		</transform>\n")
+    f.write("		<ref id=\"Water_Drop\"/>\n")
+    f.write("	</shape>\n")
+
+def test_drops_53(n,f):
+    f.write("	<shape type=\"obj\">\n")
+    str ="		<string name=\"filename\" value=\"52_13thJan_SmallDS/static_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
     f.write(str)
     f.write("		<transform name=\"toWorld\">\n")
     f.write("		    <scale value=\"0.3\"/>\n")
