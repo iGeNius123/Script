@@ -120,7 +120,7 @@
 	</shape>
 
 	<shape type="obj">
-		<string name="filename" value="NewWaterDrops/11_15thJan_SmallDS_Split/dynamic/dynamic_drop_001.obj"/>
+		<string name="filename" value="NewWaterDrops/11_15thJan_SmallDS_Split/dynamic_drop_001.obj"/>
 		<transform name="toWorld">
 			<scale value="0.3"/>
 			<rotate z="1" angle="180"/>
@@ -131,7 +131,7 @@
 	</shape>
 
 		<shape type="obj">
-		<string name="filename" value="NewWaterDrops/12_16thJan_BigDS_Split/dynamic/dynamic_drop_001.obj"/>
+		<string name="filename" value="NewWaterDrops/12_16thJan_BigDS_Split/dynamic_drop_001.obj"/>
 		<transform name="toWorld">
 			<scale value="0.3"/>
 			<rotate z="1" angle="180"/>
@@ -142,7 +142,7 @@
 	</shape>
 
 		<shape type="obj">
-		<string name="filename" value="NewWaterDrops/25_15thJan_BigDS_Split/dynamic/dynamic_drop_001.obj"/>
+		<string name="filename" value="NewWaterDrops/25_15thJan_BigDS_Split/dynamic_drop_001.obj"/>
 		<transform name="toWorld">
 			<scale value="0.3"/>
 			<rotate z="1" angle="180"/>
@@ -152,7 +152,7 @@
 		<ref id="Water_Drop"/>
 	</shape>
 		<shape type="obj">
-		<string name="filename" value="NewWaterDrops/52_16thJan_LargeDS_Split/dynamic/dynamic_drop_001.obj"/>
+		<string name="filename" value="NewWaterDrops/52_16thJan_LargeDS_Split/dynamic_drop_001.obj"/>
 		<transform name="toWorld">
 			<scale value="0.3"/>
 			<rotate z="1" angle="180"/>
@@ -172,11 +172,11 @@
 		<ref id="Water_Drop"/>
 	</shape>
 
-	<!-- <shape type="rectangle" id="light_left">
+	<shape type="rectangle" id="light_left">
 	<transform name="toWorld">
 		<scale value = "5"/>
-		<rotate x = "1" angle = "150"/>
-		<translate  y = "15" z = "25"/>
+		<rotate y = "1" angle = "120"/>
+		<translate  x = "-30" z = "20"/>
 	</transform>
 
 	<bsdf type="twosided">
@@ -188,5 +188,23 @@
 	<emitter type="area">
 		<spectrum name="radiance" value="10"/>
 	</emitter>
-</shape> -->
+</shape>
+
+	<shape type="rectangle" id="light_right">
+	<transform name="toWorld">
+		<scale value = "5"/>
+		<rotate y = "1" angle = "-120"/>
+		<translate  x = "30" z = "20"/>
+	</transform>
+
+	<bsdf type="twosided">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0, 0, 0"/>
+		</bsdf>
+	</bsdf>
+
+	<emitter type="area">
+		<spectrum name="radiance" value="10"/>
+	</emitter>
+</shape>
 </scene>

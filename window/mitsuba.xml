@@ -48,7 +48,17 @@
 		</bsdf>
 	</shape>
 	<shape type="obj">
-		<string name="filename" value="NewWaterDrops/52_16thJan_LargeDS_Split/dynamic/dynamic_drop_000.obj"/>
+		<string name="filename" value="NewWaterDrops/11_15thJan_SmallDS_Split/dynamic_drop_039.obj"/>
+		<transform name="toWorld">
+		    <scale value="0.3"/>
+		    <rotate z="1" angle="180"/>
+		    <translate y = "1.000000"/>
+		    <translate x = "-6.000000"/>
+		</transform>
+		<ref id="Water_Drop"/>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="NewWaterDrops/52_16thJan_LargeDS_Split/dynamic_drop_499.obj"/>
 		<transform name="toWorld">
 		    <scale value="0.3"/>
 		    <rotate z="1" angle="180"/>
@@ -58,7 +68,17 @@
 		<ref id="Water_Drop"/>
 	</shape>
 	<shape type="obj">
-		<string name="filename" value="NewWaterDrops/52_16thJan_SmallDS/dynamic_drop_000.obj"/>
+		<string name="filename" value="NewWaterDrops/12_16thJan_BigDS_Split/dynamic_drop_039.obj"/>
+		<transform name="toWorld">
+		    <scale value="0.3"/>
+		    <rotate z="1" angle="180"/>
+		    <translate y = "1.550000"/>
+		    <translate x = "-3.000000"/>
+		</transform>
+		<ref id="Water_Drop"/>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="NewWaterDrops/52_16thJan_SmallDS/dynamic_drop_499.obj"/>
 		<transform name="toWorld">
 		    <scale value="0.3"/>
 		    <rotate z="1" angle="180"/>

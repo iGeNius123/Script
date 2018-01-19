@@ -1,4 +1,5 @@
 import os, sys
+import platform
 import subprocess
 import window as w
 import shutil
@@ -21,7 +22,7 @@ def single_water_drops_window(total_f):
     # Clear Folder
     clearFolderContents("window/Result02/")
 
-    for i in range(0, total_f):
+    for i in range(490, 500):
         file = open("window/mitsuba.xml", "w+")
         w.print_head_Info(file)
         w.print_scene_head(file)
@@ -36,25 +37,32 @@ def single_water_drops_window(total_f):
         w.waterDrop_52_16thJan_LargeDS_Split(0,i,-3.0,-2.0,file,499)
         w.waterDrop_12_16thJan_BigDS_Split(460,i,-3.0,1.55,file,319)
         w.waterDrop_52_16thJan_SmallDS(0,i,3.0,0.6,file,499)
-        w.waterDrop_25_15thJan_BigDS_Split(460,i,6,0.08,file,319)
+        w.waterDrop_25_15thJan_BigDS_Split(0,i,6,-8,file,319)
         w.print_scene_tail(file)
 
         file.close()
+        if platform.system() == "Windows" :
+            name = '{num:03d}'.format(num=i)
+            cmd = "cd window && mitsuba -o " + name + " mitsuba.xml"
+            os.system(cmd)
 
-        name = '{num:03d}'.format(num=i)
-        cmd = "cd window && mitsuba -o " + name + " mitsuba.xml"
-        os.system(cmd)
 
 
+            # load the image and crop it
+            name = name+".png"
+            #image = cv2.imread("C:\\Users\\chu.386\\Desktop\\window\\"+name)
+            #image = image[0:720, 0:1280]
+            #cv2.imwrite("C:\\Users\\chu.386\\Desktop\\window\\Result02\\"+name,image)
+            mov = "cd window && move "+name+" Result02/"# window && move " + name + " /Result02/"
+            os.system(mov)
+        elif platform.system() == "Darwin" :
+            name = '{num:03d}'.format(num=i)
+            cmd = "cd window && mitsuba -o " + name + " mitsuba.xml"
 
-        # load the image and crop it
-        name = name+".png"
-        #image = cv2.imread("C:\\Users\\chu.386\\Desktop\\window\\"+name)
-        #image = image[0:720, 0:1280]
-        #cv2.imwrite("C:\\Users\\chu.386\\Desktop\\window\\Result02\\"+name,image)
-        mov = "cd window && move "+name+" Result02/"# window && move " + name + " /Result02/"
-        os.system(mov)
-
+            os.system(cmd)
+            name = name+".png"
+            mov = "cd window && mv "+name+" Result02/"# window && move " + name + " /Result02/"
+            os.system(mov)
 
 
 single_water_drops_window(1000)

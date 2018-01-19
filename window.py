@@ -101,7 +101,7 @@ def test_drops_53(n,f):
 def waterDrop_11_15thJan_SmallDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str ="		<string name=\"filename\" value=\"NewWaterDrops/11_15thJan_SmallDS_Split/dynamic/dynamic_drop_"+'{num:03d}'.format(num=current_f - start_f)+".obj\"/>\n"
+        str ="		<string name=\"filename\" value=\"NewWaterDrops/11_15thJan_SmallDS_Split/dynamic_drop_"+'{num:03d}'.format(num=current_f - start_f)+".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -117,7 +117,7 @@ def waterDrop_11_15thJan_SmallDS_Split(start_f,current_f,x_trans,y_trans,file,ma
 def waterDrop_12_16thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/12_16thJan_BigDS_Split/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/12_16thJan_BigDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -134,7 +134,7 @@ def waterDrop_12_16thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_
 def waterDrop_25_15thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_BigDS_Split/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_BigDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -151,7 +151,7 @@ def waterDrop_25_15thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_
 def waterDrop_52_16thJan_LargeDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_LargeDS_Split/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_LargeDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
