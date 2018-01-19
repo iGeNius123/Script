@@ -1,7 +1,6 @@
 import os, sys
 import subprocess
 import window as w
-import cv2
 import shutil
 
 
@@ -49,7 +48,7 @@ def single_water_drops_window():
         #image = cv2.imread("C:\\Users\\chu.386\\Desktop\\window\\"+name)
         #image = image[0:720, 0:1280]
         #cv2.imwrite("C:\\Users\\chu.386\\Desktop\\window\\Result02\\"+name,image)
-        mov = "move  window/" + name + " window/Result02"
+        mov = "cd window && move "+name+" Result02/"# window && move " + name + " /Result02/"
         os.system(mov)
 
 
