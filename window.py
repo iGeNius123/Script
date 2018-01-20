@@ -30,7 +30,7 @@ def perspective(file):
     file.write("			<lookat target=\"0, 0, 0\" origin=\"0, 0, 50\" up=\"0, 1, 0\"/>\n")
     file.write("		</transform>\n")
     file.write("		<sampler type=\"ldsampler\">\n")
-    file.write("			<integer name=\"sampleCount\" value=\"4\"/>\n")
+    file.write("			<integer name=\"sampleCount\" value=\"1\"/>\n")
     file.write("		</sampler>\n")
     file.write("		<film type=\"ldrfilm\">\n")
     file.write("			<integer name=\"height\" value=\"720\"/>\n")
@@ -169,6 +169,22 @@ def waterDrop_52_16thJan_SmallDS(start_f,current_f,x_trans,y_trans,file,max_fram
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
         str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_SmallDS/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+
+# 000~319  y: -2.07 (bot)
+def waterDrop_merging(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_19thJan_SmallDS_Merge_Frame33_Smooth/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
