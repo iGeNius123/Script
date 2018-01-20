@@ -30,7 +30,7 @@ def perspective(file):
     file.write("			<lookat target=\"0, 0, 0\" origin=\"0, 0, 50\" up=\"0, 1, 0\"/>\n")
     file.write("		</transform>\n")
     file.write("		<sampler type=\"ldsampler\">\n")
-    file.write("			<integer name=\"sampleCount\" value=\"1\"/>\n")
+    file.write("			<integer name=\"sampleCount\" value=\"512\"/>\n")
     file.write("		</sampler>\n")
     file.write("		<film type=\"ldrfilm\">\n")
     file.write("			<integer name=\"height\" value=\"720\"/>\n")
