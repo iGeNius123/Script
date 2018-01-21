@@ -21,7 +21,7 @@ def clearFolderContents(pathToFolder, recursive=False):
 def single_water_drops_window(total_f):
     # Clear Folder
     #clearFolderContents("window/Result02/")
-    for i in range(0, 751):
+    for i in range(750, 749):
     #for i in [0,50,100,150,200,250,300,350,400,450,500,550,600,650,700,749]:
         file = open("window/mitsuba.xml", "w+")
         w.print_head_Info(file)
