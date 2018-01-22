@@ -75,33 +75,40 @@ def glass(file):
    # file.write("		</medium>\n")
     file.write("	</shape>\n")
 
-def no_split_long_drops(n,f):
-    f.write("	<shape type=\"obj\">\n")
-    str ="		<string name=\"filename\" value=\"No_Split_Long_Drops/dynamic_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
-    f.write(str)
-    f.write("		<transform name=\"toWorld\">\n")
-    f.write("		    <scale value=\"0.3\"/>\n")
-    f.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
-    f.write("		</transform>\n")
-    f.write("		<ref id=\"Water_Drop\"/>\n")
-    f.write("	</shape>\n")
-
-def test_drops_53(n,f):
-    f.write("	<shape type=\"obj\">\n")
-    str ="		<string name=\"filename\" value=\"52_13thJan_SmallDS/static_drop_"+'{num:03d}'.format(num=n)+".obj\"/>\n"
-    f.write(str)
-    f.write("		<transform name=\"toWorld\">\n")
-    f.write("		    <scale value=\"0.3\"/>\n")
-    f.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
-    f.write("		</transform>\n")
-    f.write("		<ref id=\"Water_Drop\"/>\n")
-    f.write("	</shape>\n")
-
-# 000~309  y: -7.3(bot) 1(top)
-def waterDrop_11_15thJan_SmallDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
+# 000~319  y: -7.46(bot) 1(top)
+def waterDrop_11_15thJan_SmallDS_Split_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str ="		<string name=\"filename\" value=\"NewWaterDrops/11_15thJan_SmallDS_Split/dynamic_drop_"+'{num:03d}'.format(num=current_f - start_f)+".obj\"/>\n"
+        str ="		<string name=\"filename\" value=\"NewWaterDrops/11_15thJan_SmallDS_Split_Smooth/dynamic/dynamic_drop_"+'{num:03d}'.format(num=current_f - start_f)+".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 139+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str ="		<string name=\"filename\" value=\"NewWaterDrops/11_15thJan_SmallDS_Split_Smooth/static/static_drop_139_smooth.obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+
+# 000 ~244 y: -7 (bot) 1.55(top)
+def waterDrop_12_14thJan_SmallDS_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str ="		<string name=\"filename\" value=\"NewWaterDrops/12_14thJan_SmallDS_Smooth/dynamic_drop_"+'{num:03d}'.format(num=current_f - start_f)+".obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -114,10 +121,23 @@ def waterDrop_11_15thJan_SmallDS_Split(start_f,current_f,x_trans,y_trans,file,ma
         file.write("	</shape>\n")
 
     # 000~319  y: -6.6(bot) 1.55(top)
-def waterDrop_12_16thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
+def waterDrop_12_16thJan_BigDS_Split_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/12_16thJan_BigDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/12_16thJan_BigDS_Split_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \"" + '{num:f}'.format(num=y_trans) + "\"/>\n")
+        file.write("		    <translate x = \"" + '{num:f}'.format(num=x_trans) + "\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 1+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/12_16thJan_BigDS_Split_Smooth/static/static_drop_001_smooth.obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -129,12 +149,24 @@ def waterDrop_12_16thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_
         file.write("		<ref id=\"Water_Drop\"/>\n")
         file.write("	</shape>\n")
 
-
-    # 000~319  y: -8(bot) 0.08(top)
-def waterDrop_25_15thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
+# 000 ~499 -2.31(bot) 3.27(top)
+def waterDrop_13_20thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_BigDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/13_20thJan_BigDS_Split/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 1+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/13_20thJan_BigDS_Split/static/static_drop_001.obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -146,12 +178,127 @@ def waterDrop_25_15thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_
         file.write("		<ref id=\"Water_Drop\"/>\n")
         file.write("	</shape>\n")
 
+    # 000~499  y: -4.3 (bot) 2.8 (top)
+def waterDrop_15_20thJan_BigDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/15_20thJan_BigDS_Split/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 1+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/15_20thJan_BigDS_Split/static/static_drop_001.obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")        
+
+    # 000~319  y: -5.05 (bot) 2.07 (top)
+def waterDrop_16_20thJan_BigDS_Split_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/16_20thJan_BigDS_Split_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 238+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/16_20thJan_BigDS_Split_Smooth/static/static_drop_238.obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+
+    # 000~319  y: -8.09 (bot) 0.04 (top)
+def waterDrop_25_15thJan_BigDS_Split_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_BigDS_Split_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 182+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_BigDS_Split_Smooth/static/static_drop_182_smooth.obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+
+    # 000~319  y: -8.06 (bot) 0.05 (top)
+def waterDrop_25_15thJan_SmallDS_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
+    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/25_15thJan_SmallDS_Smooth/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
 
     # 000~499  y: -2(bot) 2.2(top)
-def waterDrop_52_16thJan_LargeDS_Split(start_f,current_f,x_trans,y_trans,file,max_frame):
+def waterDrop_52_16thJan_LargeDS_Split_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_LargeDS_Split/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_LargeDS_Split_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 142+19) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_LargeDS_Split_Smooth/static/static_drop_142_smooth.obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -164,11 +311,37 @@ def waterDrop_52_16thJan_LargeDS_Split(start_f,current_f,x_trans,y_trans,file,ma
         file.write("	</shape>\n")
 
 
-    # 000~499  y: 0.6(bot) 2.2(top)
-def waterDrop_52_16thJan_SmallDS(start_f,current_f,x_trans,y_trans,file,max_frame):
+# 000~352  y: -4.02 (bot) 2.19 (top)
+def waterDrop_52_20thJan_BigDS_Merge_Frame33_Smooth(start_f,current_f,x_trans,y_trans,file,max_frame):
     if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
         file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_16thJan_SmallDS/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_20thJan_BigDS_Merge_Frame33_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) <= 32) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_20thJan_BigDS_Merge_Frame33_Smooth/immobile/Immobile_33.obj\"/>\n"
+        file.write(str)
+        file.write("		<transform name=\"toWorld\">\n")
+        file.write("		    <scale value=\"0.3\"/>\n")
+        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
+
+        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
+        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
+        file.write("		</transform>\n")
+        file.write("		<ref id=\"Water_Drop\"/>\n")
+        file.write("	</shape>\n")
+    if ((current_f - start_f) >= 82) and ((current_f - start_f) >= 0):
+        file.write("	<shape type=\"obj\">\n")
+        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_20thJan_BigDS_Merge_Frame33_Smooth/static/static_drop_082.obj\"/>\n"
         file.write(str)
         file.write("		<transform name=\"toWorld\">\n")
         file.write("		    <scale value=\"0.3\"/>\n")
@@ -180,37 +353,6 @@ def waterDrop_52_16thJan_SmallDS(start_f,current_f,x_trans,y_trans,file,max_fram
         file.write("		<ref id=\"Water_Drop\"/>\n")
         file.write("	</shape>\n")
 
-# 000~319  y: -2.07 (bot)
-def waterDrop_merging(start_f,current_f,x_trans,y_trans,file,max_frame):
-    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
-        file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_19thJan_SmallDS_Merge_Frame33_Smooth/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
-        file.write(str)
-        file.write("		<transform name=\"toWorld\">\n")
-        file.write("		    <scale value=\"0.3\"/>\n")
-        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
-
-        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
-        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
-        file.write("		</transform>\n")
-        file.write("		<ref id=\"Water_Drop\"/>\n")
-        file.write("	</shape>\n")
-
-# 000~319  y: -1.55 (bot)
-def waterDrop_merging02(start_f,current_f,x_trans,y_trans,file,max_frame):
-    if ((current_f - start_f) <= max_frame) and ((current_f - start_f) >= 0):
-        file.write("	<shape type=\"obj\">\n")
-        str = "		<string name=\"filename\" value=\"NewWaterDrops/52_19thJan_SmallDS_Merge_Frame41_Smooth/dynamic/dynamic_drop_" + '{num:03d}'.format(num=current_f - start_f) + ".obj\"/>\n"
-        file.write(str)
-        file.write("		<transform name=\"toWorld\">\n")
-        file.write("		    <scale value=\"0.3\"/>\n")
-        file.write("		    <rotate z=\"1\" angle=\"180\"/>\n")
-
-        file.write("		    <translate y = \""+'{num:f}'.format(num=y_trans)+"\"/>\n")
-        file.write("		    <translate x = \""+'{num:f}'.format(num=x_trans)+"\"/>\n")
-        file.write("		</transform>\n")
-        file.write("		<ref id=\"Water_Drop\"/>\n")
-        file.write("	</shape>\n")
 
 def static_water_drop(path_to_file,scale,rot_x,rot_y,rot_z,x_trans,y_trans,z_trans,file):
     file.write("	<shape type=\"obj\">\n")
